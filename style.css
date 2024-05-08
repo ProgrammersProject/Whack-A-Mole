@@ -1,0 +1,95 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+html, body{
+    height: 100%;
+}
+body{
+    font-family: 'Courier New', Courier, monospace;
+    background-color: green;
+    color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    cursor: none;
+}
+.score{
+    font-size: 4em;
+    margin-bottom: 10px;
+}
+.board{
+    height: 600px;
+    width: 600px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 80px;
+}
+.hole{
+    background-color: rgb(165,85,11);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    box-shadow: inset 0 10px 0 7px rgb(53,21,6),
+                inset 20px 20px 15px rgba(0, 0, 0, .3),
+                0 0 5px rgba(0, 0, 0, .5);
+    position: relative;
+    overflow: hidden;
+}
+.hole .mole{
+    width:70%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    bottom: 0;
+    animation: rise 0.3s ease-out;
+    -webkit-animation: rise 0.3s ease-out;
+}
+@keyframes rise{
+    0%{
+        transform: translateX(-50%) translateY(100%);
+        -webkit-transform: translateX(-50%) translateY(100%);
+        -moz-transform: translateX(-50%) translateY(100%);
+        -ms-transform: translateX(-50%) translateY(100%);
+        -o-transform: translateX(-50%) translateY(100%);
+    }
+    100%{
+        transform: translateX(-50%) translateY(0%);
+        -webkit-transform: translateX(-50%) translateY(0%);
+        -moz-transform: translateX(-50%) translateY(0%);
+        -ms-transform: translateX(-50%) translateY(0%);
+        -o-transform: translateX(-50%) translateY(0%);
+}
+}
+.cursor{
+    height: 110px;
+    width:100px;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    background-image: url('assets/hammer.png');
+    background-size: 100% 100%;
+    transform: translate(-20%, 20%);
+    transition: transform .1s;
+    -webkit-transition: transform .1s;
+    -moz-transition: transform .1s;
+    -ms-transition: transform .1s;
+    -o-transition: transform .1s;
+    pointer-events: none;
+}
+.cursor.active{
+    transform: translate(-20%, 20%) rotate(-45deg);
+    -webkit-transform: translate(-20%, 20%) rotate(-45deg);
+    -moz-transform: translate(-20%, 20%) rotate(-45deg);
+    -ms-transform: translate(-20%, 20%) rotate(-45deg);
+    -o-transform: translate(-20%, 20%) rotate(-45deg);
+}
